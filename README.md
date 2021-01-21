@@ -29,7 +29,7 @@ ItemAPI utilizes the [Item-NBT-API](https://github.com/tr7zw/Item-NBT-API) for a
 * Utilizing the new methodology for setting MapMeta via the [MapView](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/map/MapView.html) while stil providing backwards compatibility for setting map IDs.
 * Implementing standalone code for interfacing with item NBT data without requiring a third-party API (Item-NBT-API).
 
-### Using Rappu as a Dependency
+### Using ItemAPI as a Dependency
 
 &#9888;&nbsp;*Note: This dependency must be shaded into your plugin to work correctly! This is not a standalone plugin.*
 
@@ -70,6 +70,19 @@ dependencies {
 }
 ```
 Replace `{VERSION}` with the version shown above.
+
+#### Manual Usage
+
+Releases are also published on GitHub [here](https://github.com/magicmq/ItemAPI/releases). You may download the JAR and import it yourself into your IDE of choice, or you may install it into your local repository.
+
+### Building
+
+Building requires [Maven](https://maven.apache.org/) and [Git](https://git-scm.com/). Maven 3+ is recommended for building the project. Follow these steps:
+
+1. Clone the repository: `git clone https://github.com/magicmq/ItemAPI.git`
+2. Enter the repository root: `cd ItemAPI`
+3. Build with Maven: `mvn clean package`
+4. Built files will be located in the `target` directory.
 
 ### Issues/Suggestions
 
