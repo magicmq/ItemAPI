@@ -27,7 +27,7 @@ For Developers
 ##############
 
 * Javadocs for this project can be viewed `here <https://docs.magicmq.dev/something>`__.
-* Including the library in your own projects is outlined on the ItemAPI's `Github Page <https://github.com/itemapi>`__.
+* Including the library in your own projects is outlined on the ItemAPI's `GitHub Repository <https://github.com/magicmq/ItemAPI>`__.
 * This project also supports Configurate, meaning JSON, HOCON, and XML formats are also supported in addition to the traditional Bikkit YAML format. For information on Configurate, see the Javadocs as well as the `Configurate Github Page <https://github.com/SpongePowered/Configurate>`__.
 * For licensing information, see the :ref:`license` page.
 
