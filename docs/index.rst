@@ -12,7 +12,7 @@ The aim of ItemAPI is to both standardize and simplify the definition of Minecra
 
 The entire API was written with simplicity and readibility in mind.
 
-.. warning:: This API was only built to support Minecraft versions 1.12 and above. While ItemAPI theoretically *should* support versions lower than 1.12, here is no guarantee of full functionality no support will be offered.
+.. warning:: This API was only built to support Minecraft versions 1.12 and above. While ItemAPI theoretically *should* support versions lower than 1.12, there is no guarantee of full functionality no support will be offered.
 
 For Users
 #########
