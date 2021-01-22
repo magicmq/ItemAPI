@@ -23,11 +23,14 @@ ItemAPI supports the usage of *either* the [Bukkit Configuration API](https://hu
 
 ItemAPI utilizes the [Item-NBT-API](https://github.com/tr7zw/Item-NBT-API) for adding NBT data to and extracting it from items. I am considering implementing my own code to interface with NBT in the future, but for now, this library will be automatically shaded in with ItemAPI as it is required.
 
-#### Planned Features:
+#### Planned Features (Not in order of priority):
 
-* RGB color support for color codes in item display names, lores, and book titles, authors, and pages.
+* Support for shulker boxes
+* RGB/hex color support for color codes in item display names, lores, and book titles, authors, and pages.
 * Utilizing the new methodology for setting MapMeta via the [MapView](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/map/MapView.html) while stil providing backwards compatibility for setting map IDs.
 * Implementing standalone code for interfacing with item NBT data without requiring a third-party API (Item-NBT-API).
+* Expanded API for serializing: addition of methods to convert item config section to a string as well as a base64 string for more compressed/efficient storage
+* Expanded API for WrappedItem: addition of methods to extract custom data from the item config section. This will eventually lead to removal of ChancedWrappedItem and GuiWrappedItem
 
 ### Using ItemAPI as a Dependency
 
