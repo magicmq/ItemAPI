@@ -79,6 +79,8 @@ public class WrappedItem implements Serializable {
                 this.metadata = new SpawnEggMetadata(section);
             else if (material.equals("MOB_SPAWNER") || material.equals("SPAWNER"))
                 this.metadata = new SpawnerMetadata(section);
+        } else if (section.contains("shulker-box-items")) {
+            this.metadata = new ShulkerBoxMetadata(section);
         } else if (section.contains("potion")) {
             this.metadata = new PotionMetadata(section);
         } else if (section.contains("banner-patterns")) {
@@ -269,6 +271,15 @@ public class WrappedItem implements Serializable {
      * @throws IOException If writing to the configuration failed
      */
     public void saveToConfig(File file, WrappedConfigurationSection section) throws IOException {
+        writeToSection(section);
+        section.save(file);
+    }
+
+    /**
+     * Write all data within this WrappedItem to a configuration section. <b>Warning:</b> This method does not save the configuration section!
+     * @param section The configuration section to which all data associated with this item will be serialized
+     */
+    public void writeToSection(WrappedConfigurationSection section) {
         section.clearConfigurationSection();
 
         section.set("material", this.material);
@@ -280,7 +291,5 @@ public class WrappedItem implements Serializable {
         this.nbtData.saveNbtTags(section);
 
         this.metadata.saveToConfig(section);
-
-        section.save(file);
     }
 }
