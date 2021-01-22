@@ -201,7 +201,7 @@ public class NBTData implements Serializable {
     /**
      * Serialize all the NBT data contained within this class to a configuration section.
      * <b>Warning:</b> This method is called automatically from {@link WrappedItem#saveToConfig(File, WrappedConfigurationSection)} saveToConfig} in the WrappedItem class!
-     * @param section The configuration to which the data will be serialized
+     * @param section The configuration section to which the data will be serialized
      */
     public void saveNbtTags(WrappedConfigurationSection section) {
         WrappedConfigurationSection nbtSection = section.createConfigurationSection("nbt");

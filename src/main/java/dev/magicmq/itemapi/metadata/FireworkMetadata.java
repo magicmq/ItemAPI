@@ -157,7 +157,7 @@ public class FireworkMetadata extends Metadata implements Serializable {
     /**
      * Serialize all the firework metadata contained within this class as well as basic metadata in {@link Metadata Metadata} to a configuration section.
      * <b>Warning:</b> This method is called automatically from {@link WrappedItem#saveToConfig(File, WrappedConfigurationSection) saveToConfig} in the WrappedItem class!
-     * @param section The configuration to which the data will be serialized
+     * @param section The configuration section to which the data will be serialized
      */
     @Override
     public void saveToConfig(WrappedConfigurationSection section) {
