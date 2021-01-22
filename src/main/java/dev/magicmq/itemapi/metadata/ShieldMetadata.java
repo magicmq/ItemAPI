@@ -46,7 +46,6 @@ public class ShieldMetadata extends Metadata implements Serializable {
         WrappedConfigurationSection shieldSection = section.getConfigurationSection("shield-patterns");
         baseColor = section.getString("base-color");
         for (String key : shieldSection.getKeys(false)) {
-            System.out.println(key);
             WrappedConfigurationSection subSection = shieldSection.getConfigurationSection(key);
             patterns.add(new Pattern(subSection.getString("color"), subSection.getString("type")));
         }
