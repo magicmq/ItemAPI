@@ -148,13 +148,13 @@ public class BookMetadata extends Metadata implements Serializable {
         item = super.applyMetadata(item);
 
         BookMeta meta = (BookMeta) item.getItemMeta();
-        if (title != null)
+        if (title != null && !title.isEmpty())
             meta.setTitle(ChatColor.translateAlternateColorCodes('&', title));
-        if (author != null)
+        if (author != null && !author.isEmpty())
             meta.setAuthor(ChatColor.translateAlternateColorCodes('&', author));
         if (generation != null)
             meta.setGeneration(BookMeta.Generation.valueOf(generation));
-        if (pages != null)
+        if (pages != null && pages.size() > 0)
             meta.setPages(pages.stream().map(string -> ChatColor.translateAlternateColorCodes('&', string)).collect(Collectors.toList()));
 
         item.setItemMeta(meta);
@@ -171,9 +171,9 @@ public class BookMetadata extends Metadata implements Serializable {
         super.saveToConfig(section);
 
         WrappedConfigurationSection bookSection = section.createConfigurationSection("book-data");
-        if (this.title != null)
+        if (this.title != null && !this.title.isEmpty())
             bookSection.set("title", this.title.replaceAll("\u00A7", "&"));
-        if (this.author != null)
+        if (this.author != null && !this.author.isEmpty())
             bookSection.set("author", this.author.replaceAll("\u00A7", "&"));
         if (this.generation != null)
             bookSection.set("generation", this.generation);

@@ -215,10 +215,10 @@ public class Metadata implements Serializable {
     public ItemStack applyMetadata(ItemStack item) {
         ItemMeta meta = item.getItemMeta();
 
-        if (name != null)
+        if (name != null && !name.isEmpty())
             meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
 
-        if (lore != null)
+        if (lore != null && lore.size() > 0)
             meta.setLore(lore.stream().map(string -> ChatColor.translateAlternateColorCodes('&', string)).collect(Collectors.toList()));
 
         meta.setUnbreakable(unbreakable);
