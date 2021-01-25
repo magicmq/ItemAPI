@@ -5,6 +5,7 @@ import dev.magicmq.itemapi.config.WrappedConfigurationSection;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -24,6 +25,22 @@ public class ItemAPI {
         List<WrappedItem> toReturn = new ArrayList<>();
         for (String key : section.getKeys(false)) {
             toReturn.add(new WrappedItem(section.getConfigurationSection(key)));
+        }
+        return toReturn;
+    }
+
+    /**
+     * Parse a list of items out of a config file. Unlike {@link ItemAPI#parseItems(WrappedConfigurationSection)}, this method will return a HashMap where the key is the name of the configuration section for each item that was parsed.
+     * @param section A WrappedConfigurationSection containing multiple subsections, where each subsection has an item defined within
+     * @return A HashMap of WrappedItems that were parsed, where each key was the config section name for that item and the value is the item
+     * @see WrappedConfigurationSection
+     */
+    public static HashMap<String, WrappedItem> parseItemsWithKeys(WrappedConfigurationSection section) {
+        Preconditions.checkArgument(section != null, "section cannot be null!");
+
+        HashMap<String, WrappedItem> toReturn = new HashMap<>();
+        for (String key : section.getKeys(false)) {
+            toReturn.put(key, new WrappedItem(section.getConfigurationSection(key)));
         }
         return toReturn;
     }
