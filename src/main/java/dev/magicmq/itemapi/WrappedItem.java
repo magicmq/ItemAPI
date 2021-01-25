@@ -19,6 +19,8 @@ public class WrappedItem implements Serializable {
 
     private static final long serialVersionUID = -2714617059791004452L;
 
+    private transient WrappedConfigurationSection section;
+
     private String material;
     private int amount;
     private short damage;
@@ -45,6 +47,8 @@ public class WrappedItem implements Serializable {
      * @see WrappedConfigurationSection
      */
     public WrappedItem(WrappedConfigurationSection section) {
+        this.section = section;
+
         //Basic item properties
         this.material = section.getString("material", "STONE").toUpperCase();
         this.amount = section.getInt("amount", 1);
@@ -152,6 +156,14 @@ public class WrappedItem implements Serializable {
             else
                 this.metadata = new Metadata(item);
         }
+    }
+
+    /**
+     * Get the configuration section to which this item may have belonged. <b>Note:</b> This method will return null if this WrappedItem was created from scratch or if it was parsed from a Bukkit ItemStack.
+     * @return The WrappedConfigurationSection that this item originated from, or null if it did not originate from a configuration section
+     */
+    public WrappedConfigurationSection getConfigSection() {
+        return section;
     }
 
     /**
