@@ -10,7 +10,9 @@ import java.io.Serializable;
 /**
  * A {@link WrappedItem WrappedItem} that contains an additional slot variable designed for use with GUIs.
  * @see WrappedItem
+ * @deprecated This method is deprecated in favor of using {@link WrappedItem#getConfigSection()} to obtain a slot value from the config section yourself.
  */
+@Deprecated
 public class GuiWrappedItem extends WrappedItem implements Serializable {
 
     private static final long serialVersionUID = 4700804153513839523L;

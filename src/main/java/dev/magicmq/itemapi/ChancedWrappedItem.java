@@ -9,7 +9,9 @@ import java.io.Serializable;
 /**
  * A {@link WrappedItem WrappedItem} that contains an additional chance variable for use with things such as loot tables.
  * @see WrappedItem
+ * @deprecated This method is deprecated in favor of using {@link WrappedItem#getConfigSection()} to obtain a chance value from the config section yourself.
  */
+@Deprecated
 public class ChancedWrappedItem extends WrappedItem implements Serializable {
 
     private static final long serialVersionUID = 763502558982644462L;
