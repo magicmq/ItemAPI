@@ -88,7 +88,9 @@ public class ItemAPI {
      * @param section A ConfigurationSection containing multiple subsections, where each subsection has an item defined within
      * @return A list of {@link ChancedWrappedItem ChancedItems} that were parsed
      * @see WrappedConfigurationSection
+     * @deprecated Deprecated. See {@link ChancedWrappedItem} for alternative usage
      */
+    @Deprecated
     public static List<ChancedWrappedItem> getChancedItems(WrappedConfigurationSection section) {
         Preconditions.checkArgument(section != null, "section cannot be null!");
         
@@ -104,7 +106,9 @@ public class ItemAPI {
      * @param section A ConfigurationSection with the item defined within
      * @return A {@link ChancedWrappedItem ChancedItem} wherein the Item as well as the chance value can be obtained
      * @see WrappedConfigurationSection
+     * @deprecated Deprecated. See {@link ChancedWrappedItem} for alternative usage
      */
+    @Deprecated
     public static ChancedWrappedItem getChancedItem(WrappedConfigurationSection section) {
         Preconditions.checkArgument(section != null, "section cannot be null!");
         
@@ -116,7 +120,9 @@ public class ItemAPI {
      * @param section A ConfigurationSection containing multiple subsections, where each subsection has an item defined within
      * @return A list of Items that were parsed
      * @see WrappedConfigurationSection
+     * @deprecated Deprecated. See {@link GuiWrappedItem} for alternative usage
      */
+    @Deprecated
     public static List<GuiWrappedItem> getGuiItems(WrappedConfigurationSection section) {
         Preconditions.checkArgument(section != null, "section cannot be null!");
 
@@ -132,7 +138,9 @@ public class ItemAPI {
      * @param section A ConfigurationSection with the item defined within
      * @return A {@link GuiWrappedItem GuiItem} wherein the Item as well as a slot value can be obtained
      * @see WrappedConfigurationSection
+     * @deprecated Deprecated. See {@link GuiWrappedItem} for alternative usage
      */
+    @Deprecated
     public static GuiWrappedItem getGuiItem(WrappedConfigurationSection section) {
         Preconditions.checkArgument(section != null, "section cannot be null!");
 
