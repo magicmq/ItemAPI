@@ -550,7 +550,7 @@ Player Heads Having Custom Skins
 * **Type:** ``String``
 * **Default:** Nothing (``null``)
 * **Required:** No
-
+|
 * **Parameter:** ``skin-name``
 * **Type:** ``String``
 * **Default:** Nothing (``null``)
