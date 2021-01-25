@@ -650,15 +650,28 @@ Whether or not a potion is extended is defined as a boolean (true/false) via the
 Shield Metadata
 ###############
 
+* **Parameter:** ``base-color``
+* **Type:** ``String``
+* **Default:** N/A
+* **Required:** Yes
+|
+* **Parameter:** ``shield-patterns``
+* **Type:** Config Section (Each subsection is a pattern)
+* **Default:** Nothing (No patterns)
+* **Required:** No
+
 Shields, like banners, can be adorned with various patterns. In ItemAPI, shield patterns are defined the exact same way as banner patterns, except the ``shield-patterns`` section is used instead of the ``banner-patterns``. Therefore, see `Banner Metadata`_ for details on patterns. Additionally, like banners, patterns can be stacked on top of each other.
 
-Defining a shield would look something like this:
+Unlike banners, where the base color is specified in the material name, I.E. ``RED_BANNER``, a base color should be defined for shields. This represents the color of the bottom palette upon which all patterns will be placed. For a list of acceptable colors for the base color, refer to the :ref:`table on dye colors <dyecolors>` in the :ref:`appendix`.
+
+The base color is defined as a string via the ``base-color`` parameter. Defining a shield would look something like this:
 
 .. code-block:: yaml
 
     test-item:
       material: 'SHIELD'
       amount: 1
+      base-color: 'RED'
       shield-patterns:
         '1':
           type: 'GRADIENT'
@@ -671,6 +684,7 @@ Another pattern would be added by adding a new section, like so:
     test-item:
       material: 'SHIELD'
       amount: 1
+      base-color: 'RED'
       shield-patterns:
         '1':
           type: 'GRADIENT'
