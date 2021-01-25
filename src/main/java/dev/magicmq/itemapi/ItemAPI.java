@@ -15,7 +15,7 @@ public class ItemAPI {
 
     /**
      * Parse a list of items out of a config file.
-     * @param section A WrappedConfigurationSection containing multiple subsections, where each subsection has an item defined within.
+     * @param section A WrappedConfigurationSection containing multiple subsections, where each subsection has an item defined within
      * @return A list of Items that were parsed
      * @see WrappedConfigurationSection
      */
@@ -47,8 +47,8 @@ public class ItemAPI {
 
     /**
      * Parse a single item defined in a ConfigurationSection.
-     * @param section A ConfigurationSection with the item defined within.
-     * @return An {@link WrappedItem Item} representing what was parsed from the ConfigurationSection file.
+     * @param section A ConfigurationSection with the item defined within
+     * @return An {@link WrappedItem Item} representing what was parsed from the ConfigurationSection file
      * @see WrappedConfigurationSection
      */
     public static WrappedItem parseItem(WrappedConfigurationSection section) {
@@ -57,6 +57,11 @@ public class ItemAPI {
         return new WrappedItem(section);
     }
 
+    /**
+     * Parse a list of ItemStacks into WrappedItems for later serialization or other use with ItemAPI.
+     * @param items A list of items to parse
+     * @return A list of WrappedItems that were parsed
+     */
     public static List<WrappedItem> parseItems(List<ItemStack> items) {
         Preconditions.checkArgument(items != null, "items cannot be null!");
 
@@ -67,6 +72,11 @@ public class ItemAPI {
         return toReturn;
     }
 
+    /**
+     * Parse an ItemStack into a WrappedItem for later serialization or other use with ItemAPI.
+     * @param item The item to parse
+     * @return A WrappedItem representing the ItemStack that was parsed
+     */
     public static WrappedItem parseItem(ItemStack item) {
         Preconditions.checkArgument(item != null, "item cannot be null!");
 
@@ -75,8 +85,8 @@ public class ItemAPI {
 
     /**
      * Parse a list of items similar to the {@link #parseItems(WrappedConfigurationSection) parseItems} method, but this method is designed for items part of a loot table or chanced rewards. A "chance" value can be used.
-     * @param section A ConfigurationSection containing multiple subsections, where each subsection has an item defined within.
-     * @return A list of {@link ChancedWrappedItem ChancedItems} that were parsed.
+     * @param section A ConfigurationSection containing multiple subsections, where each subsection has an item defined within
+     * @return A list of {@link ChancedWrappedItem ChancedItems} that were parsed
      * @see WrappedConfigurationSection
      */
     public static List<ChancedWrappedItem> getChancedItems(WrappedConfigurationSection section) {
@@ -91,8 +101,8 @@ public class ItemAPI {
 
     /**
      * Parse a single item out of a ConfigurationSection. This item also contains a "chance" value for use with things such as loot tables, chanced rewards, etc.
-     * @param section A ConfigurationSection with the item defined within.
-     * @return A {@link ChancedWrappedItem ChancedItem} wherein the Item as well as the chance value can be obtained.
+     * @param section A ConfigurationSection with the item defined within
+     * @return A {@link ChancedWrappedItem ChancedItem} wherein the Item as well as the chance value can be obtained
      * @see WrappedConfigurationSection
      */
     public static ChancedWrappedItem getChancedItem(WrappedConfigurationSection section) {
@@ -103,8 +113,8 @@ public class ItemAPI {
 
     /**
      * Parse a list of items similar to the {@link #parseItems(WrappedConfigurationSection) parseItems} method, but this method is designed for GUI items. Items can also be defined with a slot value in the config.
-     * @param section A ConfigurationSection containing multiple subsections, where each subsection has an item defined within.
-     * @return A list of Items that were parsed.
+     * @param section A ConfigurationSection containing multiple subsections, where each subsection has an item defined within
+     * @return A list of Items that were parsed
      * @see WrappedConfigurationSection
      */
     public static List<GuiWrappedItem> getGuiItems(WrappedConfigurationSection section) {
@@ -119,8 +129,8 @@ public class ItemAPI {
 
     /**
      * Parse a single item defined in a ConfigurationSection. This item also contains a "slot" value designed for use with GUI items.
-     * @param section A ConfigurationSection with the item defined within.
-     * @return A {@link GuiWrappedItem GuiItem} wherein the Item as well as a slot value can be obtained.
+     * @param section A ConfigurationSection with the item defined within
+     * @return A {@link GuiWrappedItem GuiItem} wherein the Item as well as a slot value can be obtained
      * @see WrappedConfigurationSection
      */
     public static GuiWrappedItem getGuiItem(WrappedConfigurationSection section) {
