@@ -93,17 +93,17 @@ public class WrappedItem implements Serializable {
             this.metadata = new ShieldMetadata(section);
         } else if (section.contains("armor-color")) {
             this.metadata = new LeatherArmorMetadata(section);
-        } else if (section.contains("player-head")) {
+        } else if (section.contains("player-head-data")) {
             this.metadata = new PlayerHeadMetadata(section);
-        } else if (section.contains("book")) {
+        } else if (section.contains("book-data")) {
             this.metadata = new BookMetadata(section);
-        } else if (section.contains("map")) {
+        } else if (section.contains("map-data")) {
             this.metadata = new MapMetadata(section);
         } else if (section.contains("firework-effects")) {
             this.metadata = new FireworkMetadata(section);
         } else if (section.contains("firework-effect")) {
             this.metadata = new FireworkStarMetadata(section);
-        } else if (section.contains("tropical-fish-bucket")) {
+        } else if (section.contains("tropical-fish-bucket-data")) {
             this.metadata = new TropicalFishBucketMetadata(section);
         } else {
             this.metadata = new Metadata(section);
