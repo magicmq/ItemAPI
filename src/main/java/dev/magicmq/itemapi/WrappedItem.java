@@ -295,8 +295,7 @@ public class WrappedItem implements Serializable {
         section.clearConfigurationSection();
 
         section.set("material", this.material);
-        if (this.amount > 1)
-            section.set("amount", this.amount);
+        section.set("amount", this.amount);
         if (this.damage > 0)
             section.set("damage", this.damage);
 
