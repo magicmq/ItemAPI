@@ -76,9 +76,12 @@ public class Metadata implements Serializable {
                 }
             } else
                 this.enchantments = null;
-            if (MCVersion.isCurrentVersionAtLeast(MCVersion.v1_14_R1))
-                this.model = meta.getCustomModelData();
-            else
+            if (MCVersion.isCurrentVersionAtLeast(MCVersion.v1_14_R1)) {
+                if (meta.hasCustomModelData()) {
+                    this.model = meta.getCustomModelData();
+                } else
+                    this.model = null;
+            } else
                 this.model = null;
         } else {
             this.name = null;
