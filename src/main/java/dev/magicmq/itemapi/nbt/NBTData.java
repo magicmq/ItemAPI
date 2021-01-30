@@ -204,6 +204,8 @@ public class NBTData implements Serializable {
      * @param section The configuration section to which the data will be serialized
      */
     public void saveNbtTags(WrappedConfigurationSection section) {
+        if (nbtTags == null || nbtTags.size() == 0)
+            return;
         WrappedConfigurationSection nbtSection = section.createConfigurationSection("nbt");
         saveNbtTags(nbtSection, null);
     }
