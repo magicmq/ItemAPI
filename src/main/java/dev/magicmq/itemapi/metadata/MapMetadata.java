@@ -3,9 +3,12 @@ package dev.magicmq.itemapi.metadata;
 import dev.magicmq.itemapi.WrappedItem;
 import dev.magicmq.itemapi.config.WrappedConfigurationSection;
 import dev.magicmq.itemapi.utils.Colors;
+import dev.magicmq.itemapi.utils.exception.MapNotFoundException;
+import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.MapMeta;
+import org.bukkit.map.MapView;
 
 import java.io.File;
 import java.io.Serializable;
@@ -159,6 +162,7 @@ public class MapMetadata extends Metadata implements Serializable {
      * <b>Warning:</b> This method is called automatically from {@link WrappedItem#getAsItemStack() getAsItemStack} in the WrappedItem class!
      * @param item The item to which the metadata will be applied
      * @return The item, with metadata applied to it
+     * @throws MapNotFoundException If the map ID was not found
      */
     @Override
     public ItemStack applyMetadata(ItemStack item) {
@@ -177,7 +181,11 @@ public class MapMetadata extends Metadata implements Serializable {
             }
             meta.setScaling(scaling);
             if (mapId > -1) {
-                meta.setMapId(mapId);
+                MapView view = Bukkit.getMap(mapId);
+                if (view != null)
+                    meta.setMapView(view);
+                else
+                    throw new MapNotFoundException("Map ID " + mapId + " was not found! Please make sure this is a valid map ID.");
             }
         } /*else if (type == MapMetaType.CURRENT) {
             meta.setMapId(0);
