@@ -299,8 +299,8 @@ public class WrappedItem implements Serializable {
         if (this.damage > 0)
             section.set("damage", this.damage);
 
-        this.nbtData.saveNbtTags(section);
-
         this.metadata.saveToConfig(section);
+
+        this.nbtData.saveNbtTags(section);
     }
 }
