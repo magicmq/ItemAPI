@@ -1,5 +1,6 @@
 package dev.magicmq.itemapi.config;
 
+import com.google.common.base.Preconditions;
 import dev.magicmq.itemapi.ItemAPI;
 import org.spongepowered.configurate.ConfigurationNode;
 import org.spongepowered.configurate.loader.ConfigurationLoader;
@@ -26,6 +27,9 @@ public class ConfigurateConfigSection implements WrappedConfigurationSection {
      * @param section The name of the specific section within the entire config that ItemAPI will read to/write from.
      */
     public ConfigurateConfigSection(ConfigurationLoader<?> loader, ConfigurationNode section) {
+        Preconditions.checkArgument(loader != null, "loader cannot be null!");
+        Preconditions.checkArgument(section != null, "section cannot be null!");
+
         this.loader = loader;
         this.section = section;
     }

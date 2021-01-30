@@ -1,5 +1,6 @@
 package dev.magicmq.itemapi.config;
 
+import com.google.common.base.Preconditions;
 import dev.magicmq.itemapi.ItemAPI;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -23,6 +24,9 @@ public class BukkitConfigSection implements WrappedConfigurationSection {
      * @param section The name of the specific section within the entire config that ItemAPI will read to/write from.
      */
     public BukkitConfigSection(FileConfiguration config, ConfigurationSection section) {
+        Preconditions.checkArgument(config != null, "config cannot be null!");
+        Preconditions.checkArgument(section != null, "section cannot be null!");
+
         this.config = config;
         this.section = section;
     }
