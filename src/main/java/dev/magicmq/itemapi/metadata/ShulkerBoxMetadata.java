@@ -118,7 +118,7 @@ public class ShulkerBoxMetadata extends Metadata {
         for (Map.Entry<WrappedItem, Integer> toAdd : contents.entrySet()) {
             WrappedItem itemToAdd = toAdd.getKey();
             if (itemToAdd.getMaterial().contains("SHULKER_BOX"))
-                throw new IllegalArgumentException("Shulker boxes cannot be nested within other shulker boxes!");
+                throw new UnsupportedOperationException("Shulker boxes cannot be nested within other shulker boxes!");
 
             if (toAdd.getValue() == null)
                 inventory.addItem(itemToAdd.getAsItemStack());
