@@ -25,12 +25,12 @@ ItemAPI utilizes the [Item-NBT-API](https://github.com/tr7zw/Item-NBT-API) for a
 
 #### Planned Features (Not in order of priority):
 
-* Support for shulker boxes
 * RGB/hex color support for color codes in item display names, lores, and book titles, authors, and pages.
 * Utilizing the new methodology for setting MapMeta via the [MapView](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/map/MapView.html) while stil providing backwards compatibility for setting map IDs.
 * Implementing standalone code for interfacing with item NBT data without requiring a third-party API (Item-NBT-API).
 * Expanded API for serializing: addition of methods to convert item config section to a string as well as a base64 string for more compressed/efficient storage
-* Expanded API for WrappedItem: addition of methods to extract custom data from the item config section. This will eventually lead to removal of ChancedWrappedItem and GuiWrappedItem
+* &#9989; ~~Expanded API for WrappedItem: addition of methods to extract custom data from the item config section. This will eventually lead to removal of ChancedWrappedItem and GuiWrappedItem~~
+* &#9989; ~~Support for shulker boxes~~
 
 ### Using ItemAPI as a Dependency
 
