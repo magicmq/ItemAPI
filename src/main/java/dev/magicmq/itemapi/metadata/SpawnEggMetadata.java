@@ -7,13 +7,12 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SpawnEggMeta;
 
 import java.io.File;
-import java.io.Serializable;
 
 /**
  * Legacy support for spawn eggs prior to 1.13.
  * <b>Warning:</b> This class should not be used in Minecraft version 1.13 and later.
  */
-public class SpawnEggMetadata extends Metadata implements Serializable {
+public class SpawnEggMetadata extends Metadata {
 
     private static final long serialVersionUID = 1252365821063963317L;
 

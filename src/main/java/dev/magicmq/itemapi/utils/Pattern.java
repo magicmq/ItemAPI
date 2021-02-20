@@ -1,9 +1,13 @@
 package dev.magicmq.itemapi.utils;
 
+import java.io.Serializable;
+
 /**
  * A class representing a pattern that can be applied to a banner or a shield.
  */
-public class Pattern {
+public class Pattern implements Serializable {
+
+    private static final long serialVersionUID = 8303166385745223879L;
 
     private final String color;
     private final String patternType;

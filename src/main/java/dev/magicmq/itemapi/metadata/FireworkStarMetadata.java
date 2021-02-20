@@ -9,14 +9,13 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.FireworkEffectMeta;
 
 import java.io.File;
-import java.io.Serializable;
 import java.util.List;
 import java.util.stream.Collectors;
 
 /**
  * Wrapper class that contians all Metadata associated with Firework Stars.
  */
-public class FireworkStarMetadata extends Metadata implements Serializable {
+public class FireworkStarMetadata extends Metadata {
 
     private static final long serialVersionUID = 2581034352965703552L;
 

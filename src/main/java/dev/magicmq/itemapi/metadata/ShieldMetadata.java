@@ -10,14 +10,13 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BlockStateMeta;
 
 import java.io.File;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Wrapper class that contians all Metadata associated with Shields.
  */
-public class ShieldMetadata extends Metadata implements Serializable {
+public class ShieldMetadata extends Metadata {
 
     private static final long serialVersionUID = 7137905741683612278L;
 

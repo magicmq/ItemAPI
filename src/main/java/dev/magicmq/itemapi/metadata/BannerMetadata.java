@@ -9,14 +9,13 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BannerMeta;
 
 import java.io.File;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Wrapper class that contians all Metadata associated with Banners.
  */
-public class BannerMetadata extends Metadata implements Serializable {
+public class BannerMetadata extends Metadata {
 
     private static final long serialVersionUID = 4310549535664337336L;
 

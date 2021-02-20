@@ -8,13 +8,12 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.TropicalFishBucketMeta;
 
 import java.io.File;
-import java.io.Serializable;
 
 /**
  * Wrapper class that contians all Metadata associated with Tropical Fish Buckets.
  * <b>Warning:</b> This class should only be used with Minecraft version 1.13 and above.
  */
-public class TropicalFishBucketMetadata extends Metadata implements Serializable {
+public class TropicalFishBucketMetadata extends Metadata {
 
     private static final long serialVersionUID = 227634342010266649L;
 

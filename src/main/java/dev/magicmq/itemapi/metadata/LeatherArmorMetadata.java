@@ -9,12 +9,11 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 
 import java.io.File;
-import java.io.Serializable;
 
 /**
  * Wrapper class that contians all Metadata associated with Leather Armor.
  */
-public class LeatherArmorMetadata extends Metadata implements Serializable {
+public class LeatherArmorMetadata extends Metadata {
 
     private static final long serialVersionUID = -3738849499609361691L;
 

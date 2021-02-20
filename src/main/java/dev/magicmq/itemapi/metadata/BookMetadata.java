@@ -7,7 +7,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BookMeta;
 
 import java.io.File;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,7 +14,7 @@ import java.util.stream.Collectors;
 /**
  * Wrapper class that contians all Metadata associated with Books.
  */
-public class BookMetadata extends Metadata implements Serializable {
+public class BookMetadata extends Metadata {
 
     private static final long serialVersionUID = 5743882354883646388L;
 

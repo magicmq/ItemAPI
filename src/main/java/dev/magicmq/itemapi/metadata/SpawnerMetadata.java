@@ -8,12 +8,11 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BlockStateMeta;
 
 import java.io.File;
-import java.io.Serializable;
 
 /**
  * Wrapper class that contians all Metadata associated with Spawners.
  */
-public class SpawnerMetadata extends Metadata implements Serializable {
+public class SpawnerMetadata extends Metadata {
 
     private static final long serialVersionUID = 381573329107207808L;
 

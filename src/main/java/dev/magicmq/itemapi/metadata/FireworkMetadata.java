@@ -9,7 +9,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.FireworkMeta;
 
 import java.io.File;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,7 +16,7 @@ import java.util.stream.Collectors;
 /**
  * Wrapper class that contians all Metadata associated with Firework Rockets.
  */
-public class FireworkMetadata extends Metadata implements Serializable {
+public class FireworkMetadata extends Metadata {
 
     private static final long serialVersionUID = -6914720406110884881L;
 

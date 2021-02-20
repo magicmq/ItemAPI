@@ -11,13 +11,12 @@ import org.bukkit.inventory.meta.MapMeta;
 import org.bukkit.map.MapView;
 
 import java.io.File;
-import java.io.Serializable;
 
 /**
  * Wrapper class that contians all Metadata associated with Maps.
  * <b>Note:</b> This class does not support the new {@link org.bukkit.map.MapView MapView} system yet. That is a planned feature.
  */
-public class MapMetadata extends Metadata implements Serializable {
+public class MapMetadata extends Metadata {
 
     private static final long serialVersionUID = 1402169364005444321L;
 
