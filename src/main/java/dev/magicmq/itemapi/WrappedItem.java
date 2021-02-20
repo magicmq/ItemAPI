@@ -11,9 +11,8 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.*;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.Serializable;
+import java.io.*;
+import java.util.Base64;
 
 public class WrappedItem implements Serializable {
 
@@ -302,5 +301,22 @@ public class WrappedItem implements Serializable {
         this.metadata.saveToConfig(section);
 
         this.nbtData.saveNbtTags(section);
+    }
+
+    /**
+     * Serialize all data within this WrappedItem to a Base64 string for more compact and concise storage (such as storage within databases).
+     * @return A String contianing a Base64 representation of this WrappedItem
+     * @throws IOException If writing to an ObjectOutputStream fails for any reason
+     */
+    public String toBase64String() throws IOException {
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream();
+             ObjectOutputStream out = new ObjectOutputStream(baos)) {
+            out.writeObject(this);
+            out.flush();
+            byte[] bytes = baos.toByteArray();
+
+            Base64.Encoder encoder = Base64.getEncoder();
+            return encoder.encodeToString(bytes);
+        }
     }
 }

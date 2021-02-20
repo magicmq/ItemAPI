@@ -4,7 +4,11 @@ import com.google.common.base.Preconditions;
 import dev.magicmq.itemapi.config.WrappedConfigurationSection;
 import org.bukkit.inventory.ItemStack;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
 
@@ -81,6 +85,27 @@ public class ItemAPI {
         Preconditions.checkArgument(item != null, "item cannot be null!");
 
         return new WrappedItem(item);
+    }
+
+    /**
+     * Parse a Base64-encoded String into a WrappedItem.
+     * @param base64 A Base64 string representing the WrappedItem to be deserialized
+     * @return A WrappedItem representing the Base64 string that was parsed
+     * @throws IOException If parsing the Base64 string failed due to an I/O issue
+     * @throws ClassNotFoundException If the class being read from the Base64 string cannot be found or if a WrappedItem could not be extracted from the Base64 string
+     */
+    public static WrappedItem parseItem(String base64) throws IOException, ClassNotFoundException {
+        Base64.Decoder decoder = Base64.getDecoder();
+        byte[] bytes = decoder.decode(base64);
+
+        try (ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+        ObjectInputStream input = new ObjectInputStream(bais)) {
+            Object object = input.readObject();
+            if (object instanceof WrappedItem)
+                return (WrappedItem) object;
+            else
+                throw new ClassNotFoundException("WrappedItem could not be parsed from the Base64 string!");
+        }
     }
 
     /**
