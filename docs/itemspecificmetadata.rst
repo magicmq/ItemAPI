@@ -703,7 +703,7 @@ Shulker Box Metadata
 
 The following describes how to add items to Shulker Boxes. Each section within ``shulker-box-items`` is an item. The name of each item's section is unimportant.
 
-.. note:: Shulker boxes cannot be placed inside of each other. An error will result if you attempt to do this.
+.. warning:: Shulker boxes cannot be placed inside of each other. An error will result if you attempt to do this.
 
 Item
 ****
