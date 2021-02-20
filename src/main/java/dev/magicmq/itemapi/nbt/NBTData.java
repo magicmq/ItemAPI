@@ -281,10 +281,10 @@ public class NBTData implements Serializable {
                 nbtItem.setBoolean(tag.getKey(), (Boolean) tag.getValue());
                 break;
             case BYTE:
-                nbtItem.setByte(tag.getKey(), ((Integer) tag.getValue()).byteValue());
+                nbtItem.setByte(tag.getKey(), ((Number) tag.getValue()).byteValue());
                 break;
             case SHORT:
-                nbtItem.setShort(tag.getKey(), ((Integer) tag.getValue()).shortValue());
+                nbtItem.setShort(tag.getKey(), ((Number) tag.getValue()).shortValue());
                 break;
             case INT:
                 nbtItem.setInteger(tag.getKey(), (Integer) tag.getValue());
@@ -293,13 +293,13 @@ public class NBTData implements Serializable {
                 nbtItem.setLong(tag.getKey(), (Long) tag.getValue());
                 break;
             case FLOAT:
-                nbtItem.setFloat(tag.getKey(), ((Double) tag.getValue()).floatValue());
+                nbtItem.setFloat(tag.getKey(), ((Number) tag.getValue()).floatValue());
                 break;
             case DOUBLE:
                 nbtItem.setDouble(tag.getKey(), (Double) tag.getValue());
                 break;
             case BYTE_ARRAY:
-                ArrayList<Integer> list = (ArrayList<Integer>) tag.getValue();
+                List<? extends Number> list = (List<? extends Number>) tag.getValue();
                 byte[] byteArray = new byte[list.size()];
                 for (int i = 0; i < byteArray.length; i++) {
                     byteArray[i] = list.get(i).byteValue();
@@ -310,7 +310,7 @@ public class NBTData implements Serializable {
                 nbtItem.setString(tag.getKey(), (String) tag.getValue());
                 break;
             case INT_ARRAY:
-                ArrayList<Integer> list2 = (ArrayList<Integer>) tag.getValue();
+                List<Integer> list2 = (List<Integer>) tag.getValue();
                 int[] intArray = new int[list2.size()];
                 for (int i = 0; i < intArray.length; i++) {
                     intArray[i] = list2.get(i);
