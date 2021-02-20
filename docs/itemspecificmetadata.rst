@@ -205,7 +205,7 @@ Power
 *****
 
 * **Parameter:** ``power``
-* **Type:** Number ``integer``
+* **Type:** Number (``integer``)
 * **Default:** 1
 * **Required:** No
 
@@ -692,6 +692,82 @@ Another pattern would be added by adding a new section, like so:
         '2':
           type: 'STRIPE_BOTTOM'
           color: 'RED'
+
+Shulker Box Metadata
+####################
+
+* **Parameter:** ``shulker-box-items``
+* **Type:** Config Section (Each subsection is an item inside the shulker box)
+* **Default:** Nothing (No items inside the shulker box)
+* **Required:** No
+
+The following describes how to add items to Shulker Boxes. Each section within ``shulker-box-items`` is an item. The name of each item's section is unimportant.
+
+.. note:: Shulker boxes cannot be placed inside of each other. An error will result if you attempt to do this.
+
+Item
+****
+
+For defining items, all of the ItemAPI methodology still applies. Treat each section within ``shulker-box-items`` as an item defined with ItemAPI. It would look like this:
+
+.. code-block:: yaml
+
+    test-item:
+      material: 'SHULKER_BOX'
+      amount: 1
+      shulker-box-items:
+        '1':
+          material: 'DIAMOND_SWORD'
+          amount: 1
+          damage: 50
+          name: '&c&lThis is a test name.'
+          lore:
+          - '&6This is the first line of the lore.'
+          - '&6This is the second line of the lore'
+          - '&6This is the third line of the lore.'
+        '2':
+          material: 'STONE'
+          amount: 64
+        '3':
+          material: 'DIAMOND'
+          amount: 64
+
+Slot
+****
+
+* **Parameter:** ``slot``
+* **Type:** Number (``integer``)
+* **Default:** Nothing (Item will be added in the first available slot)
+* **Required:** No
+
+The slot parameter gives control over where items are placed within the shulker box. For inventories, slots begin at zero, not one. Therefore, the first slot would be slot 0, the second slot would be slot 1, and so on. If no slot is specified, the item will be added to the shulker box inventory in the first available slot.
+
+The slot of the item is defined as a number via the ``slot`` parameter. Continuing the example from above, it would look like this:
+
+.. code-block:: yaml
+
+    test-item:
+      material: 'SHULKER_BOX'
+      amount: 1
+      shulker-box-items:
+        '1':
+          material: 'DIAMOND_SWORD'
+          amount: 1
+          damage: 50
+          name: '&c&lThis is a test name.'
+          lore:
+          - '&6This is the first line of the lore.'
+          - '&6This is the second line of the lore'
+          - '&6This is the third line of the lore.'
+          slot: 0
+        '2':
+          material: 'STONE'
+          amount: 64
+          slot: 2
+        '3':
+          material: 'DIAMOND'
+          amount: 64
+          slot: 3
 
 Spawn Egg Metadata
 ##################
