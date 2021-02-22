@@ -53,16 +53,14 @@ ItemAPI utilizes the [Item-NBT-API](https://github.com/tr7zw/Item-NBT-API) for a
 #### Maven
 
 Add the following repository:
-``` maven
-<repositories>
-    <repository>
-        <id>magicmq-repo</id>
-        <url>https://repo.magicmq.dev/repository/maven-releases/</url>
-    </repository>
-</repositories>
+```
+<repository>
+    <id>magicmq-repo</id>
+    <url>https://repo.magicmq.dev/repository/maven-releases/</url>
+</repository>
 ```
 Then, add the following dependency:
-``` maven
+```
 <dependency>
     <groupId>dev.magicmq</groupId>
     <artifactId>itemapi</artifactId>
@@ -74,16 +72,17 @@ Replace `{VERSION}` with the version shown above.
 #### Gradle
 
 Add the following repository:
-``` groovy
+```
 repositories {
     ...
     magicmq-repo { url 'https://repo.magicmq.dev/repository/maven-releases/' }
 }
 ```
 Then, add the following dependency:
-``` groovy
+```
 dependencies {
-        implementation 'dev.magicmq.itemapi:{VERSION}'
+    ...
+    compile 'dev.magicmq.itemapi:{VERSION}'
 }
 ```
 Replace `{VERSION}` with the version shown above.
