@@ -63,6 +63,8 @@ public class NBTData implements Serializable {
             for (String key : section.getKeys(false)) {
                 NBTTag tag;
                 WrappedConfigurationSection tagSection = section.getConfigurationSection(key);
+                if (tagSection.getString("type") == null)
+                    throw new NBTException("NBTTag does not have a type! Please make sure one is defined in the config");
                 NBTTagType type = NBTTagType.valueOf(tagSection.getString("type"));
                 if (type == NBTTagType.COMPOUND) {
                     tag = new NBTTag(type, tagSection.getString("key"), new ArrayList<NBTTag>());
@@ -83,6 +85,8 @@ public class NBTData implements Serializable {
         } else {
             for (String key : section.getKeys(false)) {
                 WrappedConfigurationSection tagSection = section.getConfigurationSection(key);
+                if (tagSection.getString("type") == null)
+                    throw new NBTException("NBTTag does not have a type! Please make sure one is defined in the config");
                 NBTTagType type = NBTTagType.valueOf(tagSection.getString("type"));
                 if (type == NBTTagType.COMPOUND) {
                     NBTTag innerTag = new NBTTag(type, tagSection.getString("key"), new ArrayList<>());
