@@ -1,7 +1,7 @@
 ![Sonatype Nexus (Releases)](https://img.shields.io/nexus/r/dev.magicmq/itemapi?nexusVersion=3&server=https%3A%2F%2Frepo.magicmq.dev)
-![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/SpongePowered/Configurate/Build%20And%20Test/master)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/magicmq/ItemAPI/Java%20CI%20with%20Maven)
 [![Documentation Status](https://readthedocs.org/projects/itemapi-documentation/badge/?version=latest)](https://itemapi-documentation.readthedocs.io/en/latest/?badge=latest)
-[![MIT License](https://img.shields.io/badge/license-Apache%202.0-blue)](LICENSE)
+![Apache 2.0 License](https://img.shields.io/github/license/magicmq/ItemAPI)
 
 # ItemAPI
 
