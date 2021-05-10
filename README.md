@@ -18,7 +18,7 @@ The library has many features, including:
 * Fully-documented formatting so end users know exactly how to define items, NBT tags, and metadata
 * Complete [Javadocs](https://docs.magicmq.dev/itemapi) for developers
 * Complete [wiki](https://github.com/magicmq/ItemAPI/wiki) for developers
-* Full support for Minecraft `1.12.2` through `1.16.4`
+* Full support for Minecraft `1.12.2` through `1.16.5`
 * *Free* and *open-source*!
 * And much, much more!
 
