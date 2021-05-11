@@ -104,6 +104,8 @@ public class WrappedItem implements Serializable {
             this.metadata = new FireworkStarMetadata(section);
         } else if (section.contains("tropical-fish-bucket-data")) {
             this.metadata = new TropicalFishBucketMetadata(section);
+        } else if (section.contains("book-enchantments")) {
+            this.metadata = new EnchantedBookMetadata(section);
         } else {
             this.metadata = new Metadata(section);
         }

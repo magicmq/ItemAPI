@@ -196,6 +196,29 @@ The pages of a book are defined as a list of strings via the ``pages`` parameter
         - '&6This is the third page.'
         - '&6This is the fourth page.'
 
+Enchanted Book Metadata
+#######################
+
+* **Parameter:** ``book-enchantments``
+* **Type:** List of ``String``
+* **Default:** Nothing (``null``)
+* **Required:** No
+
+Enchanted books can be defined either by using the ``enchantments`` parameter as outlined in the :ref:`enchantments <enchantments>` section or via the ``book-enchantments`` parameter. Enchantments cannot be added in the same way as tools, armor, etc.
+
+.. note:: Many enchantments exist only in certain versions of Minecraft and above. To be sure the enchantment you wish to use is available in the version you are using, see the "Version" column in the table on the `enchantments`_ page.
+
+Enchantments that should be applied to the book are defined as a list of strings via the ``book-enchantments`` parameter in the format ``<enchantment type>:<enchantment level>``. It would look like this:
+
+.. code-block:: yaml
+
+    test-item:
+      material: 'ENCHANTED_BOOK'
+      amount: 1
+      book-enchantments:
+      - 'SHARPNESS:5'
+      - 'FIRE_ASPECT:2'
+
 Firework Metadata
 #################
 
