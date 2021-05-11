@@ -35,18 +35,6 @@ public class ConfigurateConfigSection implements WrappedConfigurationSection {
     }
 
     @Override
-    public Set<String> getKeys(boolean deep) {
-        Set<String> toReturn = new HashSet<>();
-        section.childrenMap().keySet().forEach(key -> toReturn.add((String) key));
-        return toReturn;
-    }
-
-    @Override
-    public boolean contains(String key) {
-        return section.hasChild(key);
-    }
-
-    @Override
     public WrappedConfigurationSection createConfigurationSection(String key) {
         return getConfigurationSection(key);
     }
@@ -64,6 +52,18 @@ public class ConfigurateConfigSection implements WrappedConfigurationSection {
         } catch (SerializationException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public Set<String> getKeys(boolean deep) {
+        Set<String> toReturn = new HashSet<>();
+        section.childrenMap().keySet().forEach(key -> toReturn.add((String) key));
+        return toReturn;
+    }
+
+    @Override
+    public boolean contains(String key) {
+        return section.hasChild(key);
     }
 
     @Override
