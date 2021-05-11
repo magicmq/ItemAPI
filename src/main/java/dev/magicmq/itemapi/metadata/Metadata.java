@@ -186,7 +186,7 @@ public class Metadata implements Serializable {
 
     /**
      * Remove an enchantment from the item.
-     * @param enchantment The enchantment to remove
+     * @param enchantment The name of the enchantment to remove
      * @see dev.magicmq.itemapi.utils.Enchantment
      */
     public void removeEnchantment(String enchantment) {
