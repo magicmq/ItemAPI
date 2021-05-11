@@ -67,6 +67,7 @@ public class FireworkMetadata extends Metadata {
         FireworkMeta meta = (FireworkMeta) item.getItemMeta();
         if (meta != null) {
             this.power = meta.getPower();
+            this.effects = new ArrayList<>();
             for (org.bukkit.FireworkEffect effect : meta.getEffects()) {
                 effects.add(new FireworkEffect(
                         effect.getType().toString(),
