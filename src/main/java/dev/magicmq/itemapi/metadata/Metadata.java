@@ -5,6 +5,7 @@ import dev.magicmq.itemapi.config.WrappedConfigurationSection;
 import dev.magicmq.itemapi.utils.MCVersion;
 import dev.magicmq.itemapi.utils.exception.EnchantmentNotFoundException;
 import org.bukkit.ChatColor;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -184,6 +185,18 @@ public class Metadata implements Serializable {
     }
 
     /**
+     * Remove an enchantment from the item.
+     * @param enchantment The enchantment to remove
+     * @see dev.magicmq.itemapi.utils.Enchantment
+     */
+    public void removeEnchantment(String enchantment) {
+        org.bukkit.enchantments.Enchantment bukkitEnchantment = org.bukkit.enchantments.Enchantment.getByName(dev.magicmq.itemapi.utils.Enchantment.getByName(name).getBukkitEnchantment());
+        if (bukkitEnchantment == null)
+            throw new EnchantmentNotFoundException("Enchantment " + name + " not found! Please make sure this enchantment is supported for this MC version.");
+        enchantments.removeIf(toCheck -> toCheck.getBukkitEnchantment().equals(bukkitEnchantment));
+    }
+
+    /**
      * Set the enchantments associated with the item.
      * @param enchantments A list of enchantments to set
      * @see dev.magicmq.itemapi.utils.Enchantment
@@ -234,9 +247,7 @@ public class Metadata implements Serializable {
 
         if (enchantments != null) {
             for (Enchantment enchantment : enchantments) {
-                org.bukkit.enchantments.Enchantment bukkitEnchantment = org.bukkit.enchantments.Enchantment.getByName(dev.magicmq.itemapi.utils.Enchantment.getByName(enchantment.getName()).getBukkitEnchantment());
-                if (enchantment == null)
-                    throw new EnchantmentNotFoundException("Enchantment " + enchantment.getName() + " not found! Please make sure this enchantment is supported for this MC version.");
+                org.bukkit.enchantments.Enchantment bukkitEnchantment = enchantment.getBukkitEnchantment();
                 meta.addEnchant(bukkitEnchantment, enchantment.getLevel(), true);
             }
         }
@@ -326,6 +337,20 @@ public class Metadata implements Serializable {
          */
         public int getLevel() {
             return level;
+        }
+
+        /**
+         * Attempts to get the Bukkit enchantment from the name of this enchantment.
+         * @return The Bukkit enchantment associated with this item
+         * @throws EnchantmentNotFoundException If no enchantment was found associated with the name of this enchantment
+         */
+        public org.bukkit.enchantments.Enchantment getBukkitEnchantment() {
+            org.bukkit.enchantments.Enchantment bukkitEnchantment = org.bukkit.enchantments.Enchantment.getByName(dev.magicmq.itemapi.utils.Enchantment.getByName(name).getBukkitEnchantment());
+
+            if (bukkitEnchantment == null)
+                throw new EnchantmentNotFoundException("Enchantment " + name + " not found! Please make sure this enchantment is supported for this MC version.");
+
+            return bukkitEnchantment;
         }
     }
 }
