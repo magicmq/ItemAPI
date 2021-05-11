@@ -192,7 +192,7 @@ public class Metadata implements Serializable {
     public void removeEnchantment(String enchantment) {
         org.bukkit.enchantments.Enchantment bukkitEnchantment = org.bukkit.enchantments.Enchantment.getByName(dev.magicmq.itemapi.utils.Enchantment.getByName(name).getBukkitEnchantment());
         if (bukkitEnchantment == null)
-            throw new EnchantmentNotFoundException("Enchantment " + name + " not found! Please make sure this enchantment is supported for this MC version.");
+            throw new EnchantmentNotFoundException("Enchantment " + enchantment + " not found! Please make sure this enchantment is supported for this MC version.");
         enchantments.removeIf(toCheck -> toCheck.getBukkitEnchantment().equals(bukkitEnchantment));
     }
 
