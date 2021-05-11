@@ -73,7 +73,10 @@ public class Metadata implements Serializable {
             if (meta.hasEnchants()) {
                 this.enchantments = new ArrayList<>();
                 for (Map.Entry<org.bukkit.enchantments.Enchantment, Integer> entry : meta.getEnchants().entrySet()) {
-                    enchantments.add(new Enchantment(entry.getKey().getKey().getKey(), entry.getValue()));
+                    if (MCVersion.isCurrentVersionAtLeast(MCVersion.v1_13_R1))
+                        enchantments.add(new Enchantment(entry.getKey().getKey().getKey(), entry.getValue()));
+                    else
+                        enchantments.add(new Enchantment(entry.getKey().getName(), entry.getValue()));
                 }
             } else
                 this.enchantments = null;
