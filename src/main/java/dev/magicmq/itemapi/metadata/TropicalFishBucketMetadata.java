@@ -12,6 +12,7 @@ import java.io.File;
 /**
  * Wrapper class that contians all Metadata associated with Tropical Fish Buckets.
  * <b>Warning:</b> This class should only be used with Minecraft version 1.13 and above.
+ * @since MC 1.13
  */
 public class TropicalFishBucketMetadata extends Metadata {
 
