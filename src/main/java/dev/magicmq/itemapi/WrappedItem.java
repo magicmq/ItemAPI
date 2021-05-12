@@ -106,6 +106,11 @@ public class WrappedItem implements Serializable {
             this.metadata = new TropicalFishBucketMetadata(section);
         } else if (section.contains("book-enchantments")) {
             this.metadata = new EnchantedBookMetadata(section);
+        } else if (section.contains("compass-data")) {
+          if (MCVersion.isCurrentVersionAtLeast(MCVersion.v1_16_R1))
+              this.metadata = new CompassMetadata(section);
+          else
+              throw new VersionNotSupportedException("Compass data is only supported in Minecraft version 1.16 and above!");
         } else {
             this.metadata = new Metadata(section);
         }
@@ -139,6 +144,11 @@ public class WrappedItem implements Serializable {
             this.metadata = new ShieldMetadata(item);
         else if (material.equals("TROPICAL_FISH_BUCKET"))
             this.metadata = new TropicalFishBucketMetadata(item);
+        else if (material.equals("COMPASS") || material.equals("LEGACY_COMPASS"))
+            if (MCVersion.isCurrentVersionAtLeast(MCVersion.v1_16_R1))
+                this.metadata = new CompassMetadata(item);
+            else
+                this.metadata = new Metadata(item);
         else {
             if (meta instanceof BannerMeta)
                 this.metadata = new BannerMetadata(item);
