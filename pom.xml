@@ -4,7 +4,7 @@
 
     <groupId>dev.magicmq</groupId>
     <artifactId>itemapi</artifactId>
-    <version>0.6.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <name>ItemAPI</name>
     <description>Library for serializing/deserializing Bukkit ItemStacks from configuration files.</description>
 
