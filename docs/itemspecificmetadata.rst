@@ -470,6 +470,31 @@ Instead of using the ``firework-effects`` section, the singular ``firework-effec
         flicker: true
         trail: true
 
+Knowledge Book Metadata
+#######################
+
+* **Parameter:** ``recipes``
+* **Type:** List of ``String``
+* **Default:** Nothing (``null``)
+* **Required:** No
+
+A knowledge book is a special book in that contains a configurable list of recipes for craftable items in the game. This item cannot be obtained by normal means; it can only be spawned in.
+
+Recipes are defined according to their `namespace <https://minecraft.fandom.com/wiki/Resource_location>`__, not just their name. For example, a diamond sword would be defined as ``minecraft:diamond_sword``, not just ``diamond_sword``. Defining recipes in this format is **required**, and recipes will not be found if another format is used. The following rules generally apply:
+* Vanilla recipes will follow the general format ``minecraft:<item name>``
+* For recipes that are defined by plugins and/or mods, the format will generally be ``<plugin/mod name>:<item name>``
+
+The recipes contained within the knowledge book are defined as a list of strings via the ``recipes`` parameter. It would look something like this:
+
+.. code-block:: yaml
+
+    test-item:
+      material: 'KNOWLEDGE_BOOK'
+      amount: 1
+      recipes:
+      - 'minecraft:diamond_sword'
+      - 'minecraft:diamond_pickaxe'
+
 Leather Armor Metadata
 ######################
 

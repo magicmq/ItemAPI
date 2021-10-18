@@ -107,11 +107,14 @@ public class WrappedItem implements Serializable {
         } else if (section.contains("book-enchantments")) {
             this.metadata = new EnchantedBookMetadata(section);
         } else if (section.contains("compass-data")) {
-          if (MCVersion.isCurrentVersionAtLeast(MCVersion.v1_16_R1))
-              this.metadata = new CompassMetadata(section);
-          else
-              throw new VersionNotSupportedException("Compass data is only supported in Minecraft version 1.16 and above!");
-        } else {
+            if (MCVersion.isCurrentVersionAtLeast(MCVersion.v1_16_R1))
+                this.metadata = new CompassMetadata(section);
+            else
+                throw new VersionNotSupportedException("Compass data is only supported in Minecraft version 1.16 and above!");
+        } else if (section.contains("recipes")) {
+            this.metadata = new KnowledgeBookMetadata();
+        }
+        else {
             this.metadata = new Metadata(section);
         }
     }
