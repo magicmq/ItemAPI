@@ -21,7 +21,7 @@ public class KnowledgeBookMetadata extends Metadata {
     private List<String> recipes;
 
     /**
-     * Create a new BannerMetadata class from scratch with default values.
+     * Create a new KnowledgeBookMetadata class from scratch with default values.
      */
     public KnowledgeBookMetadata() {
         super();
