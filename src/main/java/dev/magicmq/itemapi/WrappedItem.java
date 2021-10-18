@@ -169,6 +169,9 @@ public class WrappedItem implements Serializable {
                 this.metadata = new PotionMetadata(item);
             else if (meta instanceof EnchantmentStorageMeta)
                 this.metadata = new EnchantedBookMetadata(item);
+            else if (meta instanceof KnowledgeBookMeta) {
+                this.metadata = new KnowledgeBookMetadata(item);
+            }
             else
                 this.metadata = new Metadata(item);
         }
