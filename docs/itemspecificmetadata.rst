@@ -239,6 +239,34 @@ The ``tracking`` parameter corresponds to whether or not the compass should poin
         lodestone: 'world:0:64:0'
         tracking: true
 
+Crossbow Metadata
+#################
+
+* **Parameter:** ``charged-projectiles``
+* **Type:** Config Section (Each subsection is a projectile loaded into the Crossbow)
+* **Default:** Nothing (No loaded projectiles)
+* **Required:** No
+
+Crossbows can be loaded with various projectiles. In ItemAPI, loaded projectiles are defined similar to `Shulker Box Metadata`_, where projectiles are defined according to ItemAPI standards within their own section.
+
+For defining projectiles, all of the ItemAPI methodology still applies. Treat each section within ``charged-projectiles`` as an item defined with ItemAPI syntax. It would look like this:
+
+.. code-block:: yaml
+    test-item:
+      material: 'CROSSBOW'
+      amount: 1
+      charged-projectiles:
+        '0':
+          material: 'ARROW'
+          amount: 64
+          name: '&6Projectile stack 1'
+        '1':
+          material: 'ARROW'
+          amount: 64
+          name: '&6Projectile stack 2'
+
+.. note:: The name of each item section (I.E. "0" and "1" in the above example) is unimportant and can be anything you choose.
+
 Enchanted Book Metadata
 #######################
 
@@ -822,6 +850,8 @@ For defining items, all of the ItemAPI methodology still applies. Treat each sec
         '3':
           material: 'DIAMOND'
           amount: 64
+
+.. note:: If a slot is not defined for an item, it will be placed in the first available slot. See below for information on defining slots for items in the shulker box.
 
 Slot
 ****

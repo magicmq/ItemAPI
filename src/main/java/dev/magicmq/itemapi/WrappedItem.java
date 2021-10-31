@@ -113,6 +113,11 @@ public class WrappedItem implements Serializable {
                 throw new VersionNotSupportedException("Compass data is only supported in Minecraft version 1.16 and above!");
         } else if (section.contains("recipes")) {
             this.metadata = new KnowledgeBookMetadata();
+        } else if (section.contains("charged-projectiles")) {
+            if (MCVersion.isCurrentVersionAtLeast(MCVersion.v1_14_R1))
+                this.metadata = new CrossbowMetadata();
+            else
+                throw new VersionNotSupportedException("Crossbows are only supported in Minecraft version 1.14 and above!");
         }
         else {
             this.metadata = new Metadata(section);
@@ -152,7 +157,9 @@ public class WrappedItem implements Serializable {
                 this.metadata = new CompassMetadata(item);
             else
                 this.metadata = new Metadata(item);
-        else {
+        else if (material.equals("CROSSBOW")) {
+            this.metadata = new CrossbowMetadata();
+        } else {
             if (meta instanceof BannerMeta)
                 this.metadata = new BannerMetadata(item);
             else if (meta instanceof BookMeta)
