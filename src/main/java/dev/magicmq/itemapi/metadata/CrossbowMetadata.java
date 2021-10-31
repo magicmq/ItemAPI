@@ -46,7 +46,7 @@ public class CrossbowMetadata extends Metadata {
 
     /**
      * Create a new CrossbowMetadata class with values parsed from an existing ItemStack.
-     * @param item The item from which knowledge book metadata will be extracted
+     * @param item The item from which crossbow metadata will be extracted
      */
     public CrossbowMetadata(ItemStack item) {
         super(item);
