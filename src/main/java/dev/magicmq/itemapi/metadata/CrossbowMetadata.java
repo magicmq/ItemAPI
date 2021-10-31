@@ -77,7 +77,7 @@ public class CrossbowMetadata extends Metadata {
      * Set all charges associated with this Crossbow
      * @param chargedProjectiles A list of charges to set
      */
-    public void setRecipes(List<WrappedItem> chargedProjectiles) {
+    public void setChargedProjectiles(List<WrappedItem> chargedProjectiles) {
         this.chargedProjectiles = chargedProjectiles;
     }
 
