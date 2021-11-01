@@ -438,6 +438,27 @@ The following are patterns available for tropical fish contained within a tropic
 | CLAYFISH  |
 +-----------+
 
+.. _axolotlvariants:
+
+Axolotl Variants
+################
+
+The following axolotl variants are available for axolotl buckets.
+
++---------+--------------------------+
+| Variant | Description              |
++=========+==========================+
+| LUCY    | Leucistic (pink) axolotl |
++---------+--------------------------+
+| WILD    | Brown axolotl            |
++---------+--------------------------+
+| GOLD    | Gold axolotl             |
++---------+--------------------------+
+| CYAN    | Cyan axolotl             |
++---------+--------------------------+
+| BLUE    | Blue axolotl             |
++---------+--------------------------+
+
 .. _entitytypes:
 
 Entity Types

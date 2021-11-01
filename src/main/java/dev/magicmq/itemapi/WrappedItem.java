@@ -112,17 +112,22 @@ public class WrappedItem implements Serializable {
             else
                 throw new VersionNotSupportedException("Compass data is only supported in Minecraft version 1.16 and above!");
         } else if (section.contains("recipes")) {
-            this.metadata = new KnowledgeBookMetadata();
+            this.metadata = new KnowledgeBookMetadata(section);
         } else if (section.contains("charged-projectiles")) {
             if (MCVersion.isCurrentVersionAtLeast(MCVersion.v1_14_R1))
-                this.metadata = new CrossbowMetadata();
+                this.metadata = new CrossbowMetadata(section);
             else
                 throw new VersionNotSupportedException("Crossbows are only supported in Minecraft version 1.14 and above!");
         } else if (section.contains("stew-potion-effects")) {
             if (MCVersion.isCurrentVersionAtLeast(MCVersion.v1_14_R1))
-                this.metadata = new SuspiciousStewMetadata();
+                this.metadata = new SuspiciousStewMetadata(section);
             else
-                throw new VersionNotSupportedException("Crossbows are only supported in Minecraft version 1.14 and above!");
+                throw new VersionNotSupportedException("Suspicious stews are only supported in Minecraft version 1.14 and above!");
+        } else if (section.contains("axolotl-variant")) {
+            if (MCVersion.isCurrentVersionAtLeast(MCVersion.v1_17_R1))
+                this.metadata = new SuspiciousStewMetadata(section);
+            else
+                throw new VersionNotSupportedException("Axolotl buckets are only supported in Minecraft version 1.17 and above!");
         }
         else {
             this.metadata = new Metadata(section);
@@ -166,6 +171,8 @@ public class WrappedItem implements Serializable {
             this.metadata = new CrossbowMetadata();
         else if (material.equals("SUSPICIOUS_STEW"))
             this.metadata = new SuspiciousStewMetadata();
+        else if (material.equals("AXOLOTL_BUCKET"))
+            this.metadata = new AxolotlBucketMetadata();
         else {
             if (meta instanceof BannerMeta)
                 this.metadata = new BannerMetadata(item);

@@ -7,6 +7,25 @@ The following sections describe how to define item-specific metadata.
 
 .. note:: Several of these metadata only apply to certain items, and an error will result if another item is used. Be sure to make note of which items are acceptable in each section.
 
+Axolotl Bucket Metadata
+#######################
+
+* **Parameter:** ``axolotl-variant``
+* **Type:** ``String``
+* **Default:** Nothing (Default axolotl variant)
+* **Required:** No
+
+The variant of axolotl within an axolotl bucket can be specified. For a list of acceptable axolotl variants and their color, see the :ref:`axolotl variant table <axolotlvariants>`.
+
+The axolotl variant is defined as a string via the ``axolotl-variant`` parameter. It would look like this:
+
+.. code-block:: yaml
+
+    test-item:
+      material: 'AXOLOTL_BUCKET'
+      amount: 1
+      axolotl-variant: 'LUCY'
+
 Banner Metadata
 ###############
 

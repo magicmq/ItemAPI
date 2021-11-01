@@ -16,6 +16,8 @@ import java.util.List;
 
 /**
  * Wrapper class that contians all Metadata associated with Suspicious Stews
+ * <b>Warning:</b> This class should only be used with Minecraft version 1.14 and above.
+ * @since MC 1.14
  */
 public class SuspiciousStewMetadata extends Metadata {
 
@@ -75,6 +77,8 @@ public class SuspiciousStewMetadata extends Metadata {
                         effect.hasIcon()
                 ));
             }
+        } else {
+            this.potionEffects = new ArrayList<>();
         }
     }
 

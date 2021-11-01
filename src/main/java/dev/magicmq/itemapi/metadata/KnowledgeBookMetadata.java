@@ -50,6 +50,8 @@ public class KnowledgeBookMetadata extends Metadata {
         KnowledgeBookMeta meta = (KnowledgeBookMeta) item.getItemMeta();
         if (meta != null) {
             this.recipes = meta.getRecipes().stream().map(NamespacedKey::toString).collect(Collectors.toList());
+        } else {
+            this.recipes = new ArrayList<>();
         }
     }
 
