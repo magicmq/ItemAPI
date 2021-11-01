@@ -118,6 +118,11 @@ public class WrappedItem implements Serializable {
                 this.metadata = new CrossbowMetadata();
             else
                 throw new VersionNotSupportedException("Crossbows are only supported in Minecraft version 1.14 and above!");
+        } else if (section.contains("stew-potion-effects")) {
+            if (MCVersion.isCurrentVersionAtLeast(MCVersion.v1_14_R1))
+                this.metadata = new SuspiciousStewMetadata();
+            else
+                throw new VersionNotSupportedException("Crossbows are only supported in Minecraft version 1.14 and above!");
         }
         else {
             this.metadata = new Metadata(section);
@@ -157,9 +162,11 @@ public class WrappedItem implements Serializable {
                 this.metadata = new CompassMetadata(item);
             else
                 this.metadata = new Metadata(item);
-        else if (material.equals("CROSSBOW")) {
+        else if (material.equals("CROSSBOW"))
             this.metadata = new CrossbowMetadata();
-        } else {
+        else if (material.equals("SUSPICIOUS_STEW"))
+            this.metadata = new SuspiciousStewMetadata();
+        else {
             if (meta instanceof BannerMeta)
                 this.metadata = new BannerMetadata(item);
             else if (meta instanceof BookMeta)

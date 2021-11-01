@@ -216,6 +216,7 @@ Lodestone
 The lodestone parameter represents the actual location that a compass should point to. It is defined as a string via the ``lodestone`` parameter in the format ``<world>:<x>:<y>:<z>``. It would look something like this:
 
 .. code-block:: yaml
+
     test-item:
       material: 'COMPASS'
       amount: 1
@@ -232,6 +233,7 @@ Tracking
 The ``tracking`` parameter corresponds to whether or not the compass should point to the lodestone. If ``true``, the compass will point to the lodestone. If ``false``, it will not point to anything. Continuing the example from above, it would look like this:
 
 .. code-block:: yaml
+
     test-item:
       material: 'COMPASS'
       amount: 1
@@ -1020,6 +1022,158 @@ The pattern color is defined as a string via the ``pattern-color`` parameter. Co
         body-color: 'ORANGE'
         pattern: 'STRIPEY'
         pattern-color: 'WHITE'
+
+Suspicious Stew Metadata
+########################
+
+* **Parameter:** ``stew-potion-effects``
+* **Type:** Config Section (Each subsection is a potion effect)
+* **Default:** Nothing (No potion effects applied)
+* **Required:** No
+
+Various potion effects (with configurable options) can be a applied to a suspicious stew. Multiple effects can be applied; the effects will stack and all will be applied to the player when the stew is consumed. The following describes the different configurable values that can be applied to each potion effect.
+
+All of the following values should be contained within their own section under the ``stew-potion-effects`` section.
+
+Potion Type
+***********
+
+* **Parameter:** ``potion-type``
+* **Type:** ``String``
+* **Default:** Nothing (``null``)
+* **Required:** No
+
+The potion type is the type of potion that should be applied to this potion effect. For a list of potion types, see the :ref:`potion type table <potiontypes>`. Note that any of the common names can be used in addition to the official name.
+
+.. note:: Pay careful attention to the version of the potion type you are using. The potion types will not work if you are using a version lower than the listed version in the :ref:`potion type table <potiontypes>`.
+
+The potion type is defined as a string via the ``type`` parameter. It would look like this:
+
+.. code-block:: yaml
+
+    test-item:
+      material: 'SUSPICIOUS_STEW'
+      amount: 1
+      stew-potion-effects:
+        '0':
+          potion-type: 'SPEED'
+
+Potion Duration
+***************
+
+* **Parameter:** ``duration``
+* **Type:** ``String``
+* **Default:** N/A
+* **Required:** Yes
+
+The potion duration is the duration that the potion effect should last once the player consumes the suspicious stew. Any "user-friendly" duration can be used. For example, the following are all acceptable: ``5m30s``, ``5min30sec``, ``30s``, and ``1h30m30s``. The maximum unit of time that can be specified is days (``d``, ``day``, or ``days``). If no "unit" is specified (only a number is given), then ItemAPI will assume that the value is in seconds.
+
+The potion duration is defined as a string via the ``duration`` parameter. It would look like this:
+
+.. code-block:: yaml
+
+    test-item:
+      material: 'SUSPICIOUS_STEW'
+      amount: 1
+      stew-potion-effects:
+        '0':
+          potion-type: 'SPEED'
+          duration: '5m30s'
+
+
+Potion Amplifier
+****************
+
+* **Parameter:** ``amplifier``
+* **Type:** Number (``integer``)
+* **Default:** 1
+* **Required:** No
+
+Potion effects also have an associated amplifier value. This value will have a different end result depending on the potion effect type. Some potions will be extended (have a longer duration) when the amplifier is a value greater than 1. Other potions will have a stronger effect when the amplifier is greater than 1. To see what effect the amplifier will have on each potion effect type, see the "upgradeable" and "extendable" columns in the :ref:`potion type table <potiontypes>`.
+
+The potion amplifier is defined as a string via the ``amplifier`` parameter. It would look like this:
+
+.. code-block:: yaml
+
+    test-item:
+      material: 'SUSPICIOUS_STEW'
+      amount: 1
+      stew-potion-effects:
+        '0':
+          potion-type: 'SPEED'
+          duration: '5m30s'
+          amplifier: 1
+
+Ambient Potions
+***************
+
+* **Parameter:** ``ambient``
+* **Type:** ``boolean`` (true/false)
+* **Default:** ``true``
+* **Required:** No
+
+Potion effects can be specified as ambient. Ambient potions will have particles that both last longer and appear more translucent.
+
+Potions can be specified as ambient via the ``ambient`` parameter. It would look like this:
+
+.. code-block:: yaml
+
+    test-item:
+      material: 'SUSPICIOUS_STEW'
+      amount: 1
+      stew-potion-effects:
+        '0':
+          potion-type: 'SPEED'
+          duration: '5m30s'
+          amplifier: 1
+          ambient: true
+
+Potion Particles
+***************
+
+* **Parameter:** ``particles``
+* **Type:** ``boolean`` (true/false)
+* **Default:** ``true``
+* **Required:** No
+
+You can specify whether or not a potion effect should display particles with the ``particles`` parameter. It would look like this:
+
+.. code-block:: yaml
+
+    test-item:
+      material: 'SUSPICIOUS_STEW'
+      amount: 1
+      stew-potion-effects:
+        '0':
+          potion-type: 'SPEED'
+          duration: '5m30s'
+          amplifier: 1
+          ambient: true
+          particles: true
+
+Potion Icon
+***********
+
+* **Parameter:** ``icon``
+* **Type:** ``boolean`` (true/false)
+* **Default:** ``true``
+* **Required:** No
+
+You can also specify whether or not the potion effect should have an icon with the ``icon`` parameter. It would look like this:
+
+.. code-block:: yaml
+
+    test-item:
+      material: 'SUSPICIOUS_STEW'
+      amount: 1
+      stew-potion-effects:
+        '0':
+          potion-type: 'SPEED'
+          duration: '5m30s'
+          amplifier: 1
+          ambient: true
+          particles: true
+          icon: true
 
 Concluding Remarks
 ##################
