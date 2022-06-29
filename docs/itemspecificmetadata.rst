@@ -1148,7 +1148,7 @@ Potions can be specified as ambient via the ``ambient`` parameter. It would look
           ambient: true
 
 Potion Particles
-***************
+****************
 
 * **Parameter:** ``particles``
 * **Type:** ``boolean`` (true/false)
