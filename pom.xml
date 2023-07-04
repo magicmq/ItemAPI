@@ -22,9 +22,9 @@
     </repositories>
 
     <scm>
-        <connection>scm:git:https://github.com/magicmq/ItemAPI.git</connection>
+        <connection>scm:git:ssh://git@github.com/magicmq/ItemApi.git</connection>
         <url>https://github.com/magicmq/ItemAPI</url>
-        <developerConnection>scm:git:https://github.com/magicmq/ItemAPI.git</developerConnection>
+        <developerConnection>scm:git:ssh://git@github.com/magicmq/ItemApi.git</developerConnection>
       <tag>HEAD</tag>
   </scm>
 
