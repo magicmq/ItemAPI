@@ -22,7 +22,11 @@ public enum MCVersion {
     v1_16_R1(1161),
     v1_16_R2(1162),
     v1_16_R3(1163),
-    v1_17_R1(1171);
+    v1_17_R1(1171),
+    v1_18_R1(1181),
+    v1_18_R2(1182),
+    v1_19_R1(1191),
+    v1_19_R2(1192);
 
     private final int versionId;
 

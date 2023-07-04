@@ -169,14 +169,16 @@ public class BookMetadata extends Metadata {
     public void saveToConfig(WrappedConfigurationSection section) {
         super.saveToConfig(section);
 
-        WrappedConfigurationSection bookSection = section.createConfigurationSection("book-data");
-        if (this.title != null && !this.title.isEmpty())
-            bookSection.set("title", this.title.replaceAll("\u00A7", "&"));
-        if (this.author != null && !this.author.isEmpty())
-            bookSection.set("author", this.author.replaceAll("\u00A7", "&"));
-        if (this.generation != null)
-            bookSection.set("generation", this.generation);
-        if (this.pages != null && this.pages.size() > 0)
-            bookSection.set("pages", this.pages.stream().map(string -> string.replaceAll("\u00A7", "&")).collect(Collectors.toList()));
+        if ((this.title != null && !this.title.isEmpty()) || (this.author != null && !this.author.isEmpty()) || this.generation != null || (this.pages != null && this.pages.size() > 0)) {
+            WrappedConfigurationSection bookSection = section.createConfigurationSection("book-data");
+            if (this.title != null && !this.title.isEmpty())
+                bookSection.set("title", this.title.replaceAll("\u00A7", "&"));
+            if (this.author != null && !this.author.isEmpty())
+                bookSection.set("author", this.author.replaceAll("\u00A7", "&"));
+            if (this.generation != null)
+                bookSection.set("generation", this.generation);
+            if (this.pages != null && this.pages.size() > 0)
+                bookSection.set("pages", this.pages.stream().map(string -> string.replaceAll("\u00A7", "&")).collect(Collectors.toList()));
+        }
     }
 }

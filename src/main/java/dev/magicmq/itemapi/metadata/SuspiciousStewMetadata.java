@@ -148,11 +148,11 @@ public class SuspiciousStewMetadata extends Metadata {
     public void saveToConfig(WrappedConfigurationSection section) {
         super.saveToConfig(section);
 
-        WrappedConfigurationSection shulkerSection = section.createConfigurationSection("stew-potion-effects");
         if (this.potionEffects != null && this.potionEffects.size() > 0) {
+            WrappedConfigurationSection stewSection = section.createConfigurationSection("stew-potion-effects");
             int i = 0;
             for (PotionEffect effect : potionEffects) {
-                WrappedConfigurationSection stewEffect = shulkerSection.createConfigurationSection("" + i);
+                WrappedConfigurationSection stewEffect = stewSection.createConfigurationSection("" + i);
                 stewEffect.set("potion", effect.getPotion());
                 stewEffect.set("duration", effect.getDuration());
                 stewEffect.set("amplifier", effect.getAmplifier());

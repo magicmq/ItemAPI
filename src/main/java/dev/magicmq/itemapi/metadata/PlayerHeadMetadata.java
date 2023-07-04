@@ -174,12 +174,14 @@ public class PlayerHeadMetadata extends Metadata {
     public void saveToConfig(WrappedConfigurationSection section) {
         super.saveToConfig(section);
 
-        WrappedConfigurationSection headSection = section.createConfigurationSection("player-head-data");
-        if (this.skullOwner != null)
-            headSection.set("skull-owner", this.skullOwner);
-        if (this.skinBase64 != null)
-            headSection.set("skin-texture", this.skinBase64);
-        if (this.skinName != null)
-            headSection.set("skin-name", this.skinName);
+        if (this.skullOwner != null || this.skinBase64 != null || this.skinName != null) {
+            WrappedConfigurationSection headSection = section.createConfigurationSection("player-head-data");
+            if (this.skullOwner != null)
+                headSection.set("skull-owner", this.skullOwner);
+            if (this.skinBase64 != null)
+                headSection.set("skin-texture", this.skinBase64);
+            if (this.skinName != null)
+                headSection.set("skin-name", this.skinName);
+        }
     }
 }

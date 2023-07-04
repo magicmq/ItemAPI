@@ -239,13 +239,15 @@ public class MapMetadata extends Metadata {
     public void saveToConfig(WrappedConfigurationSection section) {
         super.saveToConfig(section);
 
-        WrappedConfigurationSection mapSection = section.createConfigurationSection("map-data");
-        if (this.color != null)
-            mapSection.set("color", this.color);
-        if (this.scaling)
-            mapSection.set("scaling", true);
-        if (this.mapId > -1)
-            mapSection.set("id", this.mapId);
+        if (this.color != null || this.scaling || this.mapId > -1) {
+            WrappedConfigurationSection mapSection = section.createConfigurationSection("map-data");
+            if (this.color != null)
+                mapSection.set("color", this.color);
+            if (this.scaling)
+                mapSection.set("scaling", true);
+            if (this.mapId > -1)
+                mapSection.set("id", this.mapId);
+        }
     }
 
     /**

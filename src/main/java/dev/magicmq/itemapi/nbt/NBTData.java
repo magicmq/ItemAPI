@@ -4,9 +4,7 @@ import de.tr7zw.changeme.nbtapi.NBTCompound;
 import de.tr7zw.changeme.nbtapi.NBTItem;
 import dev.magicmq.itemapi.WrappedItem;
 import dev.magicmq.itemapi.config.WrappedConfigurationSection;
-import dev.magicmq.itemapi.metadata.Metadata;
 import dev.magicmq.itemapi.utils.exception.NBTException;
-import org.apache.commons.lang.ArrayUtils;
 import org.bukkit.inventory.ItemStack;
 
 import java.io.File;
@@ -14,6 +12,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.IntFunction;
 import java.util.stream.Collectors;
 
 /**
@@ -356,11 +355,13 @@ public class NBTData implements Serializable {
             case DOUBLE:
                 return new NBTTag(type, key, nbtItem.getDouble(key));
             case BYTE_ARRAY:
-                return new NBTTag(type, key, Arrays.asList(ArrayUtils.toObject(nbtItem.getByteArray(key))));
+                byte[] array = nbtItem.getByteArray(key);
+                return new NBTTag(type, key, Arrays.asList(manualBox(new Byte[array.length], i -> Byte.valueOf(array[i]))));
             case STRING:
                 return new NBTTag(type, key, nbtItem.getString(key));
             case INT_ARRAY:
-                return new NBTTag(type, key, Arrays.asList(ArrayUtils.toObject(nbtItem.getIntArray(key))));
+                int[] array2 = nbtItem.getIntArray(key);
+                return new NBTTag(type, key, Arrays.asList(manualBox(new Integer[array2.length], i -> Integer.valueOf(array2[i]))));
             case LIST:
                 if (listType != null) {
                     if (listType == NBTTagType.INT) {
@@ -378,5 +379,10 @@ public class NBTData implements Serializable {
                 break;
         }
         throw new NBTException("Unable to parse NBT data for item! Type: " + type + " List Type: " + listType + " Key: " + key);
+    }
+
+    private <T> T[] manualBox(T[] array, IntFunction<? extends T> supplier) {
+        Arrays.setAll(array, supplier);
+        return array;
     }
 }

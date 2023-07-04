@@ -30,7 +30,7 @@ public class ShulkerBoxMetadata extends Metadata {
     }
 
     /**
-     * Create a new ShieldMetadata class with values parsed from a configuration section.
+     * Create a new ShulkerBoxMetadata class with values parsed from a configuration section.
      * <b>Note:</b> This receives the configuration section of the item, not the "shulker-box-items" section.
      * @param section The section from which the data will be parsed
      */
@@ -91,11 +91,14 @@ public class ShulkerBoxMetadata extends Metadata {
      * @param slot The inventory slot in which the item should be placed
      */
     public void addItem(WrappedItem item, Integer slot) {
+        if (contents == null)
+            contents = new HashMap<>();
+
         contents.put(item, slot);
     }
 
     /**
-     * Set the entire contents of the shulker box inventory. Set the slot value to null if the item does not need to have a specific slot.
+     * Set the entire contents of the shulker box inventory. Set the slot value to null if the item does not need to have a specific slot. Setting to an empty HashMap or null will clear the contents of the shulker box.
      * @param contents A HashMap representing the contents of the inventory where the keys are the items and the values are their slots
      */
     public void setContents(HashMap<WrappedItem, Integer> contents) {
@@ -133,7 +136,7 @@ public class ShulkerBoxMetadata extends Metadata {
     }
 
     /**
-     * Serialize all the shield metadata contained within this class as well as basic metadata in {@link Metadata Metadata} to a configuration section.
+     * Serialize all the shulker box metadata contained within this class as well as basic metadata in {@link Metadata Metadata} to a configuration section.
      * <b>Warning:</b> This method is called automatically from {@link WrappedItem#saveToConfig(File, WrappedConfigurationSection) saveToConfig} in the WrappedItem class!
      * @param section The configuration section to which the data will be serialized
      */
@@ -141,8 +144,8 @@ public class ShulkerBoxMetadata extends Metadata {
     public void saveToConfig(WrappedConfigurationSection section) {
         super.saveToConfig(section);
 
-        WrappedConfigurationSection shulkerSection = section.createConfigurationSection("shulker-box-items");
         if (this.contents != null && this.contents.size() > 0) {
+            WrappedConfigurationSection shulkerSection = section.createConfigurationSection("shulker-box-items");
             int i = 0;
             for (Map.Entry<WrappedItem, Integer> entry : this.contents.entrySet()) {
                 WrappedConfigurationSection itemSection = shulkerSection.createConfigurationSection("" + i);

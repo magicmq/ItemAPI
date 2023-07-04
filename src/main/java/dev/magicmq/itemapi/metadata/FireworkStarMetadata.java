@@ -126,16 +126,18 @@ public class FireworkStarMetadata extends Metadata {
     public void saveToConfig(WrappedConfigurationSection section) {
         super.saveToConfig(section);
 
-        WrappedConfigurationSection effectSection = section.createConfigurationSection("firework-effect");
-        if (effect.getType() != null)
-            effectSection.set("type", effect.getType());
-        if (effect.getColors() != null && effect.getColors().size() > 0)
-            effectSection.set("colors", effect.getColors());
-        if (effect.getFadeColors() != null && effect.getFadeColors().size() > 0)
-            effectSection.set("fade-colors", effect.getFadeColors());
-        if (effect.isFlicker())
-            effectSection.set("flicker", true);
-        if (effect.isTrail())
-            effectSection.set("trail", true);
+        if (effect.getType() != null || (effect.getColors() != null && effect.getColors().size() > 0) || (effect.getFadeColors() != null && effect.getFadeColors().size() > 0) || effect.isFlicker() || effect.isTrail()) {
+            WrappedConfigurationSection effectSection = section.createConfigurationSection("firework-effect");
+            if (effect.getType() != null)
+                effectSection.set("type", effect.getType());
+            if (effect.getColors() != null && effect.getColors().size() > 0)
+                effectSection.set("colors", effect.getColors());
+            if (effect.getFadeColors() != null && effect.getFadeColors().size() > 0)
+                effectSection.set("fade-colors", effect.getFadeColors());
+            if (effect.isFlicker())
+                effectSection.set("flicker", true);
+            if (effect.isTrail())
+                effectSection.set("trail", true);
+        }
     }
 }

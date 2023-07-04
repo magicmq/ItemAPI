@@ -145,12 +145,14 @@ public class TropicalFishBucketMetadata extends Metadata {
     public void saveToConfig(WrappedConfigurationSection section) {
         super.saveToConfig(section);
 
-        WrappedConfigurationSection tropicalSection = section.createConfigurationSection("tropical-fish-bucket-data");
-        if (this.bodyColor != null)
-            tropicalSection.set("body-color", this.bodyColor);
-        if (this.pattern != null)
-            tropicalSection.set("pattern", this.pattern);
-        if (this.patternColor != null)
-            tropicalSection.set("pattern-color", this.patternColor);
+        if (this.bodyColor != null || this.pattern != null || this.patternColor != null) {
+            WrappedConfigurationSection tropicalSection = section.createConfigurationSection("tropical-fish-bucket-data");
+            if (this.bodyColor != null)
+                tropicalSection.set("body-color", this.bodyColor);
+            if (this.pattern != null)
+                tropicalSection.set("pattern", this.pattern);
+            if (this.patternColor != null)
+                tropicalSection.set("pattern-color", this.patternColor);
+        }
     }
 }

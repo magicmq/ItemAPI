@@ -151,8 +151,8 @@ public class ShieldMetadata extends Metadata {
 
         if (this.baseColor != null)
             section.set("base-color", this.baseColor);
-        WrappedConfigurationSection shieldSection = section.createConfigurationSection("shield-patterns");
         if (this.patterns != null && this.patterns.size() > 0) {
+            WrappedConfigurationSection shieldSection = section.createConfigurationSection("shield-patterns");
             int i = 0;
             for (Pattern pattern : this.patterns) {
                 WrappedConfigurationSection patternSection = shieldSection.createConfigurationSection("" + i);

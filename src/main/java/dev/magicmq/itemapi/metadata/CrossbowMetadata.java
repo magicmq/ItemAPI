@@ -113,8 +113,8 @@ public class CrossbowMetadata extends Metadata {
     public void saveToConfig(WrappedConfigurationSection section) {
         super.saveToConfig(section);
 
-        WrappedConfigurationSection chargedProjSection = section.createConfigurationSection("charged-projetiles");
         if (this.chargedProjectiles != null && this.chargedProjectiles.size() > 0) {
+            WrappedConfigurationSection chargedProjSection = section.createConfigurationSection("charged-projetiles");
             int i = 0;
             for (WrappedItem item : chargedProjectiles) {
                 WrappedConfigurationSection chargeSection = chargedProjSection.createConfigurationSection("" + i);

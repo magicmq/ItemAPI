@@ -155,12 +155,14 @@ public class PotionMetadata extends Metadata {
     public void saveToConfig(WrappedConfigurationSection section) {
         super.saveToConfig(section);
 
-        WrappedConfigurationSection potionSection = section.createConfigurationSection("potion-data");
-        if (this.potionName != null)
-            potionSection.set("type", this.potionName);
-        if (this.potionLevel > -1)
-            potionSection.set("level", this.potionLevel);
-        if (this.potionExtended)
-            potionSection.set("extended", true);
+        if (this.potionName != null || this.potionLevel > -1 || this.potionExtended) {
+            WrappedConfigurationSection potionSection = section.createConfigurationSection("potion-data");
+            if (this.potionName != null)
+                potionSection.set("type", this.potionName);
+            if (this.potionLevel > -1)
+                potionSection.set("level", this.potionLevel);
+            if (this.potionExtended)
+                potionSection.set("extended", true);
+        }
     }
 }

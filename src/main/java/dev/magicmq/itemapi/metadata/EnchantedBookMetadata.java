@@ -138,8 +138,10 @@ public class EnchantedBookMetadata extends Metadata {
     public void saveToConfig(WrappedConfigurationSection section) {
         super.saveToConfig(section);
 
-        List<String> toSet = new ArrayList<>();
-        this.enchantments.forEach(enchantment -> toSet.add(enchantment.getName() + ":" + enchantment.getLevel()));
-        section.set("enchantments", toSet);
+        if (this.enchantments != null || this.enchantments.size() > 0) {
+            List<String> toSet = new ArrayList<>();
+            this.enchantments.forEach(enchantment -> toSet.add(enchantment.getName() + ":" + enchantment.getLevel()));
+            section.set("enchantments", toSet);
+        }
     }
 }
